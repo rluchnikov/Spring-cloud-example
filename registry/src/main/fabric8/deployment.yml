@@ -1,0 +1,21 @@
+metadata:
+  name: registry-service
+  labels:
+    run: vtb
+spec:
+  replicas: 1
+  template:
+    spec:
+     containers:
+     - alias: registry-service
+       livenessProbe:
+        tcpSocket:
+          port: 8761
+        initialDelaySeconds: 30
+       readinessProbe:
+        tcpSocket:
+          port: 8761
+        initialDelaySeconds: 30
+       ports:
+       - containerPort: 8761
+

@@ -1,0 +1,17 @@
+metadata:
+  name: config
+spec:
+  selector:
+    matchLabels:
+        run: vtb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: vtb
+    spec:
+     containers:
+      - alias: config-service
+        ports:
+        - containerPort: 8888
+

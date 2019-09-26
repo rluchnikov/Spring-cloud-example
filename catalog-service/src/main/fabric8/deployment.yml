@@ -1,0 +1,27 @@
+metadata:
+  name: catalog-service
+spec:
+  selector:
+    matchLabels:
+      run: vtb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: vtb
+    spec:
+        containers:
+         - alias: catalog-service
+           livenessProbe:
+            tcpSocket:
+              port: 5001
+            initialDelaySeconds: 80
+           readinessProbe:
+            tcpSocket:
+               port: 5001
+            initialDelaySeconds: 80
+           ports:
+             - containerPort: 5001
+             - containerPort: 5005
+
+

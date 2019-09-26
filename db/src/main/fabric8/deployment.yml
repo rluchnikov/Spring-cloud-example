@@ -1,0 +1,28 @@
+metadata:
+  name: db
+  labels:
+        run: db
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: db
+    spec:
+     hostname: db
+     containers:
+     - alias: db
+       ports:
+        - containerPort: 5432
+       env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+       volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgredb
+     volumes:
+        - name: postgredb

@@ -1,0 +1,9 @@
+metadata:
+  name: auth-service
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    run: vtb
+  type: NodePort

@@ -1,0 +1,70 @@
+[
+  {
+    "@id": "10",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryAction",
+    "name": "initAction"
+  },
+  {
+    "@id": "11",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryAction",
+    "name": "execAction"
+  },
+  {
+    "@id": "12",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryAction",
+    "name": "cancelAction"
+  },
+  {
+    "@id": "13",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryAction",
+    "name": "finishAction"
+  },
+  {
+    "@id": "1",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryState",
+    "initial": true,
+    "state": "Создан"
+  },
+  {
+    "@id": "2",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryState",
+    "initial": false,
+    "state": "Отменен"
+  },
+  {
+    "@id": "3",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryState",
+    "initial": false,
+    "state": "Исполнение"
+  },
+  {
+    "@id": "4",
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryState",
+    "initial": false,
+    "state": "Выполнен"
+  },
+  {
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryTransition",
+    "source": "1",
+    "target": "2",
+    "event": "Отменен",
+    "kind": "EXTERNAL",
+    "actions": ["12"]
+  },
+  {
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryTransition",
+    "source": "1",
+    "target": "3",
+    "event": "Исполнение",
+    "kind": "EXTERNAL",
+    "actions": ["11"]
+  },
+  {
+    "_class": "org.springframework.statemachine.data.jpa.JpaRepositoryTransition",
+    "source": "3",
+    "target": "4",
+    "event": "Выполнен",
+    "kind": "EXTERNAL",
+    "actions": ["13"]
+  }
+]

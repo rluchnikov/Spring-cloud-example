@@ -1,0 +1,18 @@
+metadata:
+  name: zoo
+  labels:
+    name: zoo
+spec:
+  ports:
+  - name: client
+    port: 2181
+    protocol: TCP
+  - name: follower
+    port: 2888
+    protocol: TCP
+  - name: leader
+    port: 3888
+    protocol: TCP
+  selector:
+    run: zoo
+  type: NodePort

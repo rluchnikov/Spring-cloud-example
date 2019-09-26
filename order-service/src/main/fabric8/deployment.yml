@@ -1,0 +1,29 @@
+metadata:
+  name: order-service
+  labels:
+    run: vtb
+spec:
+  selector:
+    matchLabels:
+      run: vtb
+      tier: order
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: vtb
+        tier: order
+    spec:
+       containers:
+       - alias: order-service
+         livenessProbe:
+            tcpSocket:
+              port: 5002
+            initialDelaySeconds: 100
+         readinessProbe:
+            tcpSocket:
+               port: 5002
+            initialDelaySeconds: 100
+         ports:
+          - containerPort: 5002
+          - containerPort: 5005

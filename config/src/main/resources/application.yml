@@ -1,0 +1,27 @@
+spring:
+ application:
+   name: config
+ cloud:
+   config:
+     server:
+       native:
+         search-locations: classpath:/shared
+ profiles:
+  active: native
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:admin@registry-service:8761/eureka/
+  instance:
+    metadataMap:
+     instanceId: ${spring.application.name}:${random.int}
+    prefer-ip-address: true
+
+security:
+  user:
+    name: configUser
+    password: configPassword

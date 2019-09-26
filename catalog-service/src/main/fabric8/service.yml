@@ -1,0 +1,13 @@
+metadata:
+  name: catalog-service
+spec:
+  ports:
+  - name: http
+    port: 5001
+    targetPort: 5001
+  - name: debug
+    port: 5005
+    targetPort: 5005
+  selector:
+    run: vtb
+  type: NodePort

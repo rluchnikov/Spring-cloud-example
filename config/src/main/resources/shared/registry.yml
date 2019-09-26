@@ -1,0 +1,15 @@
+server:
+  port: 8761
+eureka:
+  numberRegistrySyncRetries: 1
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+  server:
+       enable-self-preservation: false
+       maxThreadsForPeerReplication: 0

@@ -1,0 +1,2 @@
+CREATE DATABASE catalog;
+GRANT ALL PRIVILEGES ON DATABASE catalog TO postgres;

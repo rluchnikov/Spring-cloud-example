@@ -1,0 +1,13 @@
+metadata:
+  name: gateway
+  labels:
+    run: vtb
+spec:
+  replicas: 1
+  template:
+    spec:
+     containers:
+     - alias: gateway
+       ports:
+       - containerPort: 8080
+

@@ -1,0 +1,60 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    region: default
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    auth-service:
+        path: /auth/**
+        serviceId: auth-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+    catalog-service:
+        path: /catalog/**
+        serviceId: catalog-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+    order-service:
+            path: /orders/**
+            url: order-service
+            stripPrefix: false
+            sensitiveHeaders:
+
+    statistics-service:
+        path: /statistics/**
+        serviceId: statistics-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+    state-service:
+        path: /state/**
+        serviceId: state-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+server:
+ port: 8080

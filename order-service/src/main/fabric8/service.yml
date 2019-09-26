@@ -1,0 +1,13 @@
+metadata:
+  name: order-service
+spec:
+  ports:
+  - name: http
+    port: 5002
+    targetPort: 5002
+  - name: debug
+    port: 5005
+    targetPort: 5005
+    run: vtb
+    tier: order
+  type: NodePort

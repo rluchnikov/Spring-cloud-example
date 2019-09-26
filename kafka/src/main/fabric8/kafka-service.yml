@@ -1,0 +1,13 @@
+metadata:
+  name: kafka
+  labels:
+    name: kafka
+spec:
+  ports:
+  - name: kafka-port
+    port: 9093
+    targetPort: 9093
+    protocol: TCP
+  selector:
+    run: kafka
+  type: NodePort

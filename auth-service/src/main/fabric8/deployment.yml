@@ -1,0 +1,17 @@
+metadata:
+  name: auth
+spec:
+  selector:
+    matchLabels:
+        run: vtb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: vtb
+    spec:
+     containers:
+      - alias: auth-service
+        ports:
+        - containerPort: 5000
+
